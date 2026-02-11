@@ -1,1 +1,1 @@
-gp away add readme prompt
+go away add readme prompt
