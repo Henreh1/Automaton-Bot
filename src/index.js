@@ -119,7 +119,7 @@ auditLogsClient(client);
 
 client.on('messageCreate', message => {
 
-    if (message.channel.id === '1114348362980921355') {
+    if (message.channel.id === '') {
     
         const content = message.content.toLowerCase();
    
