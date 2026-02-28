@@ -117,17 +117,31 @@ auditLogsClient(client);
 
 //Binary Channel Checks
 
-client.on('messageCreate', message => {
+client.on('messageCreate', async message => {
 
-    if (message.channel.id === '') {
-    
-        const content = message.content.toLowerCase();
-   
-        if (!(content.startsWith('0') || content.startsWith('1'))) {
-       
-           
-            message.delete();
-    
+    if (message.author.bot) return;
+
+    if (message.channel.id === '1477036611752431826') {
+
+        const content = message.content.trim();
+
+        // Allows:
+        // - 0s and 1s
+        // - spaces
+        // - user mentions (<@123> or <@!123>)
+        const validPattern = /^([01\s]+|<@!?\d+>)+$/;
+
+        if (!validPattern.test(content)) {
+            try {
+                await message.delete();
+
+                await message.channel.send({
+                    content: `Only binary is permitted in this channel.`
+                });
+
+            } catch (err) {
+                console.error(err);
+            }
         }
     }
 
