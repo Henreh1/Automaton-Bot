@@ -114,3 +114,21 @@ auditLogsClient(client);
         console.error(`${color.red}[${getTimestamp()}]${color.reset} [LOGIN] Error while logging into ${config.botName}. Check if your token is correct or double check your also using the correct intents. \n${color.red}[${getTimestamp()}]${color.reset} [LOGIN]`, error);
     });
 })();
+
+//Binary Channel Checks
+
+client.on('messageCreate', message => {
+
+    if (message.channel.id === '1114348362980921355') {
+    
+        const content = message.content.toLowerCase();
+   
+        if (!(content.startsWith('0') || content.startsWith('1'))) {
+       
+           
+            message.delete();
+    
+        }
+    }
+
+});
