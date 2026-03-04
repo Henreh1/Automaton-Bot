@@ -7,7 +7,7 @@ module.exports = {
 
     async execute(message, client, interaction) {
         if (message.author.bot) return;
-        if (message.content.includes(`<@${client.user.id}>`))  {
+       // if (message.content.includes(`<@${client.user.id}>`))  {
 
             const setupChannel = await SetupChannel.findOne({ channelID: message.channel.id });
             if (setupChannel) return;
