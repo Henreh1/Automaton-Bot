@@ -11,16 +11,15 @@ function distubeClient(client, distube) {
     
     try {
         client.distube = new DisTube(client, {
-            leaveOnStop: false,
-            emitNewSongOnly: true,
-            emitAddSongWhenCreatingQueue: false,
-            emitAddListWhenCreatingQueue: false,
             plugins: [
-                new SpotifyPlugin({
-                    emitEventsAfterFetching: true
-                }),
+                new SpotifyPlugin(                
+                ),
             new SoundCloudPlugin(),
-            new YtDlpPlugin()
+            new YtDlpPlugin({
+    ytdlOptions: {
+        playerClients: ["ANDROID"]
+    }
+})
             ]
         });
         console.log(`${color.green}[${getTimestamp()}]${color.reset} [MUSIC] DisTube client initialized successfully`);
