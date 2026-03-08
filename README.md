@@ -1,1 +1,1 @@
-go away add readme prompt
+Verify FFMPEG stabilty
