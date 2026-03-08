@@ -125,10 +125,6 @@ client.on('messageCreate', async message => {
 
         const content = message.content.trim();
 
-        // Allows:
-        // - 0s and 1s
-        // - spaces
-        // - user mentions (<@123> or <@!123>)
         const validPattern = /^([01\s]+|<@!?\d+>)+$/;
 
         if (!validPattern.test(content)) {
